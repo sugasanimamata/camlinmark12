@@ -1,0 +1,30 @@
+Vagrant.configure("2") do |config|
+
+#Webserver node,ubuntu os
+  config.vm.define "web01" do |web01|
+    web01.vm.box="ubuntu/trusty64"
+    web01.vm.hostname='web01'
+    web01.vm.network "public_network"
+  end
+
+  config.vm.define "web02" do |web02|
+    web02.vm.box="centos/6"
+    web02.vm.hostname='web02'
+    web02.vm.network "public_network"
+  end
+
+#DBservernode,ubuntu OS
+  config.vm.define "db" do |db|
+    db.vm.box="centos/6"
+    db.vm.hostname='db'
+    db.vm.network "public_network"
+  end
+
+#Control server
+  config.vm.define "control" do |control|
+    control.vm.box="ubuntu/trusty64"
+    control.vm.hostname='control'
+    control.vm.network "public_network"
+  end
+end
+
